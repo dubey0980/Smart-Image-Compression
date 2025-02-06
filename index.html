@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompressX - Smart Image Compression</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">📸</span>
+                    <span class="logo-text">CompressX</span>
+                </div>
+                <div class="nav-actions">
+                    <button class="theme-btn" id="themeToggle">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-container">
+            <div class="hero">
+                <h1>Smart Image Compression</h1>
+                <p class="subtitle">Optimize your images in seconds while maintaining quality</p>
+            </div>
+
+            <div class="workspace">
+                <div class="upload-zone" id="dropZone">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <div class="upload-illustration">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3>Drop your image here</h3>
+                        <p class="upload-text">or</p>
+                        <button class="select-btn">Select Image</button>
+                        <p class="file-limit">Supports: JPG, PNG, WebP • Up to 10MB</p>
+                    </div>
+                </div>
+
+                <div class="editor hidden" id="editor">
+                    <div class="editor-header">
+                        <h3>Image Editor</h3>
+                        <button class="close-btn" id="closeEditor">×</button>
+                    </div>
+
+                    <div class="preview-area">
+                        <img id="image-preview" alt="Preview">
+                    </div>
+
+                    <div class="editor-controls">
+                        <div class="control-group">
+                            <label class="control-label">
+                                Quality
+                                <span class="quality-value" id="qualityValue">80%</span>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" id="qualitySlider" min="1" max="100" value="80">
+                            </div>
+                        </div>
+
+                        <button class="compress-btn" id="compressButton">
+                            <span class="btn-content">
+                                <span class="btn-text">Compress Now</span>
+                                <span class="spinner hidden"></span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="results hidden" id="results">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-label">Original</span>
+                                <span class="stat-value" id="originalSize">0 KB</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Compressed</span>
+                                <span class="stat-value" id="compressedSize">0 KB</span>
+                            </div>
+                            <div class="stat-card savings">
+                                <span class="stat-label">Saved</span>
+                                <span class="stat-value" id="savingsPercent">0%</span>
+                            </div>
+                        </div>
+                        <button class="download-btn" id="downloadButton">
+                            <span class="btn-text">Download Compressed Image</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="contact-section">
+            <div class="contact-content">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span class="contact-text">+91 6263859823</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span class="contact-text">dubayaadi2@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Made with ❤️ for better web performance</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
